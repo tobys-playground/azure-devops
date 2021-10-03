@@ -129,14 +129,6 @@ jobs:
     displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
     inputs:
       SourceFolder: $(Build.SourcesDirectory)
-      Contents: >
-        **/requirements/*
-
-        **/models/*
-
-        **/Dockerfile
-
-        **/streamlit-app.py
       TargetFolder: $(Build.ArtifactStagingDirectory)
   - task: PublishPipelineArtifact@1
     displayName: Publish Pipeline Artifact
