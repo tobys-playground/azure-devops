@@ -94,13 +94,13 @@ jobs:
       scriptLocation: inlineScript
       inlineScript: "az ml datastore upload -w $(azureml.workspaceName) -g $(azureml.resourceGroup) --name $(az ml datastore show-default -w $(azureml.workspaceName) -g $(azureml.resourceGroup) --query name -o tsv) --src-path data --overwrite true \n"
   - task: Bash@3
-    displayName: Bash Script
+    displayName: Create Output Dir
     inputs:
       targetType: inline
       script: >
         mkdir metadata && mkdir models
   - task: AzureCLI@2
-    displayName: Register Dataset and Train Model
+    displayName: Train Model
     inputs:
       connectedServiceNameARM: ServiceConnection2
       scriptType: bash
