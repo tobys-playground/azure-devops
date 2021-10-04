@@ -13,8 +13,15 @@ As such, to save time and effort, we can automate its training and deployment by
 This CI/CD pipeline will be triggered to automatically train/retrain our AI (A DistilBert model) to detect joyful/neutral sentences when a change has been committed to this repo.
 Once the training is done, the AI will be automatically deployed online in a web app.
 
-We will be using Azure (Microsoft's Cloud) extensively for this.
+We will be using Azure (Microsoft's Cloud) extensively for this:
+
+![image001 (1)](https://user-images.githubusercontent.com/81354022/135783204-2f5868bd-a3a0-4abf-95ee-10db5e91164f.jpg)
 
 The web app is available at (Only on 5 Oct): 
 
 https://nusdevopsdemo.azurewebsites.net/
+
+Preview:
+
+![image](https://user-images.githubusercontent.com/81354022/135783256-0c32a79f-b2d0-4b2a-b167-08259092d629.png)
+
