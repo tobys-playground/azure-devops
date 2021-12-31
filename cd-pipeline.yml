@@ -1,3 +1,8 @@
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-20.04
 steps:
 - task: Docker@2
   displayName: 'Build Docker Image'
@@ -6,18 +11,15 @@ steps:
     repository: nusdevops
     Dockerfile: '$(System.DefaultWorkingDirectory)/_toby-htx.nus-devops-course/nusdevopsmodels/Dockerfile'
     tags: latest
-    
 steps:
 - bash: |
    # Write your commands here
    sleep 120s
   displayName: 'Wait for 2 minutes'
-  
- steps:
+steps:
 - task: AzureWebAppContainer@1
   displayName: 'Deploy '
   inputs:
     azureSubscription: ServiceConnection2
     appName: nusdevopsdemo
     containers: '$(Image)'
-
