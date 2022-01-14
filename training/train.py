@@ -2,9 +2,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import ktrain
 from ktrain import text
-from azureml.core import Run
+from azureml.core import Run, Dataset
 from sklearn.metrics import accuracy_score
-from azureml.core import Dataset
 
 #Get the experiment run context
 run = Run.get_context()
