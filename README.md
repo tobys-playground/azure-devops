@@ -15,7 +15,7 @@ Once the training is done, the AI will be automatically deployed online in a web
 
 We will be using Azure (Microsoft's Cloud) extensively for this:
 
-![image001 (4)](https://user-images.githubusercontent.com/81354022/148675040-5ad940db-6465-4932-a2cf-6d29c25f595b.jpg)
+![image](https://user-images.githubusercontent.com/81354022/155881167-4680f9e7-6e38-4dd5-a4d8-57c85df5d046.png)
 
 The web app is available at (Only on 5 Oct): 
 
