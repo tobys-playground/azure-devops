@@ -1,19 +1,19 @@
 import streamlit as st
+from PIL import Image
 import ktrain
 import re
 
-emotion_clf = ktrain.load_predictor('./models/outputs')
+emotion_clf = ktrain.load_predictor('mgsa-ed')
 
 def predict_emotion(data):
     result= emotion_clf.predict([data])
     return result
 
-def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
+def load_images(file_name):
+    img = Image.open(file_name)
+    return st.image(img,width=None)
 
-def load_icon(icon_name):
-    st.markdown('<i class="material-icons">{}</i>'.format(icon_name), unsafe_allow_html=True)
+emotions_emoji_dict = {"anger":"😠","disgust":"🤢", "fear":"😨", "joy":"😀", "guilt":"😔", "sadness":"☹️", "shame":"😳"}
 
 st.cache(persist=True)
 def call(text):
@@ -26,26 +26,30 @@ def call(text):
 
                 emotion = result[0]
 
-                st.success('{} : {}'.format(sent, emotion))
+                emoji = emotions_emoji_dict[emotion]
 
+                st.success('{} : {} {}'.format(sent, emotion, emoji))
         else:
             st.error("Please enter a valid input")
 
 def main():
-    """Joy Detector App
+    """Emotion Detection App
     With Streamlit
+
     """
 
-    st.title("Joy Detector")
+    st.title("FGSA- Emotion Detection")
     html_temp = """
     <div style="background-color:white;padding:0px">
-    <h2 style="color:black;text-align:center;">See if your text contains the emotion of joy or is neutral!</h2>
+    <h2 style="color:black;text-align:center;">See which emotion is in your text: </h2>
     </div>
-"""
+
+  """
     st.markdown(html_temp,unsafe_allow_html=True)
+    load_images('emotions.jpg')
 
     text = st.text_input("Please Type Below")
     call(text)
-    
+
 if __name__ == "__main__":
     main()
